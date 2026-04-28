@@ -77,25 +77,31 @@ export const App = () => {
 
       <form onSubmit={handleSubmit}>
         <div className="field">
+          <label htmlFor="title">Title</label>
+
           <input
+            id="title"
             type="text"
             placeholder="Enter title"
             data-cy="titleInput"
             value={title}
-            onChange={e => {
-              setTitle(e.target.value);
+            onChange={event => {
+              setTitle(event.target.value);
               setErrors(prev => ({ ...prev, title: false }));
             }}
           />
+
           {errors.title && <span className="error">Please enter a title</span>}
         </div>
 
         <div className="field">
+          <label htmlFor="user">User</label>
           <select
+            id="user"
             data-cy="userSelect"
             value={userId}
-            onChange={e => {
-              setUserId(Number(e.target.value));
+            onChange={event => {
+              setUserId(Number(event.target.value));
               setErrors(prev => ({ ...prev, user: false }));
             }}
           >
